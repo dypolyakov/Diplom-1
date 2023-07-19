@@ -20,6 +20,6 @@ public class BunTest {
         float expectedPrice = 988;
         float actualPrice = bun.getPrice();
         String errorMessage = "Некорректная цена булочки";
-        Assert.assertEquals(errorMessage, expectedPrice, actualPrice, 0.01);
+        Assert.assertEquals(errorMessage, expectedPrice, actualPrice, 0);
     }
 }

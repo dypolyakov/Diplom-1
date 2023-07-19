@@ -1,13 +1,20 @@
 package praktikum;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class IngredientTest {
 
+    Ingredient ingredient;
+
+    @Before
+    public void setUp() {
+        ingredient = new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90);
+    }
+
     @Test
     public void getPrice() {
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90);
         float expectedPrice = 90;
         float actualPrice = ingredient.getPrice();
         String errorMessage = "Некорректная цена соуса";
@@ -16,7 +23,6 @@ public class IngredientTest {
 
     @Test
     public void getName() {
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90);
         String expectedName = "Соус Spicy-X";
         String actualName = ingredient.getName();
         String errorMessage = "Некорректное название соуса";
@@ -25,7 +31,6 @@ public class IngredientTest {
 
     @Test
     public void getType() {
-        Ingredient ingredient = new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90);
         IngredientType expectedType = IngredientType.SAUCE;
         IngredientType actualType = ingredient.getType();
         String errorMessage = "Некорректный тип соуса";

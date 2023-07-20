@@ -11,13 +11,10 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.fail;
-
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
     Burger burger;
-    List<Ingredient> ingredients = new ArrayList<>();
     @Mock
     Bun bun;
     @Mock

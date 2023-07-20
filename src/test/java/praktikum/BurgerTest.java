@@ -38,7 +38,7 @@ public class BurgerTest {
 
         // проверка что в бургере только один ингредиент
         Assert.assertEquals(1, burger.ingredients.size());
-        // проверка что в бургере именно добавленная начинка
+        // проверка что в бургере добавленная начинка
         Assert.assertEquals(ingredientFilling, burger.ingredients.get(0));
     }
 
@@ -99,5 +99,26 @@ public class BurgerTest {
 
         // проверка что ожидаемая и фактическая цены совпали
         Assert.assertEquals(expectedPrice, actualPrice, 0);
+    }
+
+    @Test
+    public void getReceipt() {
+        bun = new Bun("Краторная булка N-200i", 1255);
+        ingredientSauce = new Ingredient(IngredientType.SAUCE, "Соус Spicy-X", 90f);
+        ingredientFilling = new Ingredient(IngredientType.FILLING, "Говяжий метеорит (отбивная)", 3000f);
+
+        burger.bun = bun;
+        burger.ingredients.add(ingredientSauce);
+        burger.ingredients.add(ingredientFilling);
+
+        String expectedReceipt = "(==== Краторная булка N-200i ====)\n" +
+                "= sauce Соус Spicy-X =\n" +
+                "= filling Говяжий метеорит (отбивная) =\n" +
+                "(==== Краторная булка N-200i ====)\n\n" +
+                "Price: 5600,000000\n";
+
+        String actualReceipt = burger.getReceipt();
+
+        Assert.assertEquals(expectedReceipt, actualReceipt);
     }
 }
